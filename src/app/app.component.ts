@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { MapService } from './app.service';
+
 import * as io from 'socket.io-client';
 declare var google: any;
 declare var window: any;
@@ -30,12 +31,12 @@ export class AppComponent implements OnInit, AfterViewInit {
       .subscribe(data => {
         console.log('address', data.results[0].address_components);
         let addressPart = data.results[0].address_components;
-        if(addressPart.length){
+        if (addressPart.length) {
           self.address = addressPart[0].long_name;
-          addressPart.map(d=> {
-            if( d.long_name != addressPart[0].long_name)
-                self.address += ',' + d.long_name;
-            })
+          addressPart.map(d => {
+            if (d.long_name != addressPart[0].long_name)
+              self.address += ',' + d.long_name;
+          })
         }
         else self.address = 'Address Not Found';
       }, err => console.log('Address Find Error::::', err))
@@ -66,16 +67,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     //setTimeout(this.fun1, 5000);
   }
-  // fun1() {
-  //   console.log('preparing to load...')
-  //   let script = document.createElement('script');
-  //   script.type = 'text/javascript';
-  //   script.async = true;
-  //   script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDBM8GfQbRRekkECNxSBHtzsHB7hdj2EWg&callback=initMap";
-  //   script.charset = 'utf-8';
-  //   document.getElementsByTagName('head')[0].appendChild(script);
-  //   console.log('Append Done');
-  // }
 
   bid() {
     this.socket.emit('bid', this.bidValue);

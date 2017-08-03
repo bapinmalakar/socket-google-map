@@ -5,10 +5,13 @@ import { AgmCoreModule, AgmMarker, AgmInfoWindow } from '@agm/core';
 import { AppComponent } from './app.component';
 import { MapService } from './app.service';
 import { HttpModule } from '@angular/http';
+import { TextBackColor } from './back-color.directive';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TextBackColor
   ],
   imports: [
     BrowserModule,
@@ -20,6 +23,6 @@ import { HttpModule } from '@angular/http';
 
   ],
   providers: [MapService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

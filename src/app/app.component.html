@@ -1,15 +1,18 @@
-<h1>$ {{price}}</h1>
-<input [(ngModel)]="bidValue">
-<button (click)="bid()">Place Bid</button>
+<div style="margin-left: 10%;">
+  <h1>$ {{price}}</h1>
+  <input [(ngModel)]="bidValue">
+  <button (click)="bid()">Place Bid</button>
 
-<div style="margin-left: 40%;">
-  <input type="text" placeholder="Receiver Id " [(ngModel)]="message" />
-  <button type="button" (click)="sendMessage()">Send Message</button>
+  <div>
+    <input type="text" placeholder="Receiver Id " [(ngModel)]="message" />
+    <button type="button" (click)="sendMessage()">Send Message</button>
+  </div>
+  <div class="box" style="width: 50%;">
+    <h2 back-color>Drop File</h2>
+  </div>
+
+  <agm-map title={{address}} [latitude]="location.latitude" [longitude]="location.longitude" [zoomControl]="false">
+    <agm-marker [latitude]="location.latitude" [longitude]="location.longitude"></agm-marker>
+    <agm-info-window> <strong>InfoWindow content</strong> </agm-info-window>
+  </agm-map>
 </div>
-
-<hr>
-<hr>
-<agm-map title={{address}} [latitude]="location.latitude" [longitude]="location.longitude" [zoomControl]="false">
-  <agm-marker [latitude]="location.latitude" [longitude]="location.longitude"></agm-marker>
-  <agm-info-window> <strong>InfoWindow content</strong> </agm-info-window>
-</agm-map>-->
